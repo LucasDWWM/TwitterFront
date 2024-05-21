@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 
-function ArticleList() {
+// Composant pour lister les articles
+const ArticleList = () => {
     const [articles, setArticles] = useState([]);
 
+    // Charger les articles au montage du composant
     useEffect(() => {
-        // remplacer http://localhost:8000/api/articles par l'URL correcte de votre d'API Laravel.
-        axios.get('http://localhost:8000/api/articles')
+        api.get('/articles')
             .then(response => {
                 setArticles(response.data);
             })
             .catch(error => {
-                console.error('Error fetching articles:', error);
+                console.error('There was an error fetching the articles!', error);
             });
     }, []);
 
@@ -25,6 +26,6 @@ function ArticleList() {
             </ul>
         </div>
     );
-}
+};
 
 export default ArticleList;
