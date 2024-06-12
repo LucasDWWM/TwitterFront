@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../api';
 
 // Composant pour créer un nouvel article
 const CreateArticle = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const navigate = useNavigate();
 
     // Gestion de la soumission du formulaire
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await api.post('/articles', { title, content });
-            // Gestion de la création réussie (par exemple, redirection vers la liste des articles)
+            // Redirection vers la liste des articles après la création réussie
+            navigate('/articles');
         } catch (error) {
             console.error('There was an error creating the article!', error);
         }
