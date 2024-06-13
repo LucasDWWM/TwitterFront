@@ -1,0 +1,10 @@
+.feed {
+    flex: 0.5;
+    border-right: 1px solid #e6ecf0;
+    padding: 20px;
+}
+
+.feed > h2 {
+    padding: 20px;
+    border-bottom: 1px solid #e6ecf0;
+}

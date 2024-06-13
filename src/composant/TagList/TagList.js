@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from '../api';
+import api from '../../api';
 
 // Composant pour afficher la liste des tags
 const TagList = () => {

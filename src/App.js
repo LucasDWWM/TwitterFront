@@ -1,28 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import ArticleList from './composant/ArticleList';
-import CreateArticle from './composant/CreateArticle';
-import TagList from './composant/TagList';
-import Login from './composant/Login';
+import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './composant/Header/Header';
+import Sidebar from './composant/Sidebar/Sidebar';
+import Feed from './composant/Feed/Feed';
+import Widgets from './composant/Widgets/Widgets';
+import CreateArticle from './composant/CreateArticle/CreateArticle';
+import TagList from './composant/TagList/TagList';
+import Login from './composant/Login/Login';
 
 function App() {
     return (
         <Router>
-            <div>
-                <nav>
-                    <ul>
-                        <li><Link to="/articles">Articles</Link></li>
-                        <li><Link to="/create-article">Create Article</Link></li>
-                        <li><Link to="/tags">Tags</Link></li>
-                        <li><Link to="/login">Login</Link></li>
-                    </ul>
-                </nav>
-                <Routes>
-                    <Route path="/articles" element={<ArticleList />} />
-                    <Route path="/create-article" element={<CreateArticle />} />
-                    <Route path="/tags" element={<TagList />} />
-                    <Route path="/login" element={<Login />} />
-                </Routes>
+            <div className="app">
+                <Header />
+                <div className="app__body">
+                    <Sidebar />
+                    <Routes>
+                        <Route path="/articles" element={<Feed />} />
+                        <Route path="/create-article" element={<CreateArticle />} />
+                        <Route path="/tags" element={<TagList />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/" element={<Feed />} />
+                    </Routes>
+                    <Widgets />
+                </div>
             </div>
         </Router>
     );
