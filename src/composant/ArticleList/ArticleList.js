@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../api';
 
-// Composant pour lister les articles
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
 
-    // Charger les articles au montage du composant
     useEffect(() => {
         api.get('/articles')
             .then(response => {

@@ -16,7 +16,7 @@ const CreateArticle = () => {
             // Redirection vers la liste des articles après la création réussie
             navigate('/articles');
         } catch (error) {
-            console.error('There was an error creating the article!', error);
+            console.error('Erreur en créant article', error);
         }
     };
 
